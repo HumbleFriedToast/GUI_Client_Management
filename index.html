@@ -1,0 +1,86 @@
+<!-- ============================================ -->
+<!--                   Gallery                    -->
+<!-- ============================================ -->
+ <html>
+	<head>
+		<link rel="stylesheet" href="main.css">
+		<script type="text/javascript" src="/eel.js"></script>
+		<script type="text/javascript" src="Data.json"></script>
+		<script type="text/javascript" src="main.js"></script>
+	</head>
+<body>
+
+	  <div class="listbox-area">
+		<div>
+		  <span id="ss_elem" class="listbox-label">
+			<p>
+				Client List :
+			  </p>
+		  </span>
+		  <ul id="ss_elem_list"
+			  tabindex="0"
+			  role="listbox"
+			  aria-labelledby="ss_elem">
+
+
+
+			<li id="ss_elem_Np" role="option">
+			  <span class="checkmark" aria-hidden="true"></span>
+			  <div class = "info">
+				 John Doe
+			  </div>
+			</li>
+
+
+
+
+			<!---->
+			<!----->>
+		  </ul>
+		</div>
+
+		
+	  </div>
+
+
+
+	  
+	  <div class = "info2" id = "info2">
+		<div class = "desc">
+			<p>
+				Description:
+			</p>
+			<textarea cols="35" rows="15"></textarea>
+			
+		</div> 
+		<p>First Name</p><input id = "0"></input>
+		<p>Family Name</p><input id = "1"></input> 
+		<p>ID </p><input></input id = "2"> 
+		<p>Date </p><input type="date" id = "3"></input>
+	</div>
+	<button onclick= "getelm()">Add Client</button>
+<script>
+	
+
+eel.expose(addelm);
+
+function addelm(x,y) {
+  const elem = document.querySelector("#ss_elem_Np");
+  elem.insertAdjacentHTML("afterend",'<li id="ss_elem_Np" role="option"> <span class="checkmark" aria-hidden="true"></span> <div class = "info">'+ x + ' ' + y +  '</div> </li>');
+}
+
+function getelm(){
+	var dict = {
+		'Name':"Null",
+		'FamilyName':"Null"
+	};
+	dict['Name'] = document.getElementById("0").value;
+	dict['FamilyName'] = document.getElementById("1").value;
+	eel.Save(dict);
+	
+}
+eel.initloader();
+</script>
+</body>
+</html>
+                                
